@@ -11,8 +11,8 @@ import com.basecamp.turbolinks.TurbolinksView;
 
 public class MainActivity extends AppCompatActivity implements TurbolinksAdapter {
     // Change the BASE_URL to an address that your VM or device can hit.
-    // private static final String BASE_URL = "http://192.168.1.10:3000";
-    private static final String BASE_URL = "https://sprachspiel.xyz";
+    private static final String BASE_URL = "http://192.168.1.42:3000";
+    // private static final String BASE_URL = "https://sprachspiel.xyz";
     private static final String INTENT_URL = "intentUrl";
 
     private String location;
@@ -30,14 +30,14 @@ public class MainActivity extends AppCompatActivity implements TurbolinksAdapter
         // Find the custom TurbolinksView object in your layout
         turbolinksView = (TurbolinksView) findViewById(R.id.turbolinks_view);
 
+        // I add the Javascript interface from WebService.java showToast()
+        // https://github.com/tamcgoey/dasher-app-android/blob/master/src/main/java/com/usedashnow/dasher/ActiveDashActivity.java
+        // to set the message read https://speakerdeck.com/tamcgoey/building-hybrid-apps-with-rails-a-case-study
+        TurbolinksSession.getDefault(this).addJavascriptInterface(new WebService(this), "Android");
+
         // For this demo app, we force debug logging on. You will only want to do
         // this for debug builds of your app (it is off by default)
         TurbolinksSession.getDefault(this).setDebugLoggingEnabled(true);
-
-        WebSettings settings = TurbolinksSession.getDefault().getWebView().getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setDomStorageEnabled(true);
-        settings.setDatabaseEnabled(true);
 
         // For this example we set a default location, unless one is passed in through an intent
         location = getIntent().getStringExtra(INTENT_URL) != null ? getIntent().getStringExtra(INTENT_URL) : BASE_URL;
