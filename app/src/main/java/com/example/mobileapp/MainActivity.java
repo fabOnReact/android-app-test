@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebSettings;
+import android.support.v7.widget.Toolbar;
 
 import com.basecamp.turbolinks.TurbolinksSession;
 import com.basecamp.turbolinks.TurbolinksAdapter;
@@ -30,9 +31,13 @@ public class MainActivity extends AppCompatActivity implements TurbolinksAdapter
         // Find the custom TurbolinksView object in your layout
         turbolinksView = (TurbolinksView) findViewById(R.id.turbolinks_view);
 
-        // I add the Javascript interface from WebService.java showToast()
+        // Creating a native navigation toolbar as described in https://speakerdeck.com/tamcgoey/building-hybrid-apps-with-rails-a-case-study
         // https://github.com/tamcgoey/dasher-app-android/blob/master/src/main/java/com/usedashnow/dasher/ActiveDashActivity.java
-        // to set the message read https://speakerdeck.com/tamcgoey/building-hybrid-apps-with-rails-a-case-study
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.activity_toolbar);
+        mToolbar.setTitle(R.string.title_activity);
+        setSupportActionBar(mToolbar);
+        // I add the Javascript interface from WebService.java showToast()
+        // https://github.com/tamcgoey/dasher-app-android/blob/master/src/main/java/com/usedashnow/dasher/ActiveDashActivity.java and to set the message read https://speakerdeck.com/tamcgoey/building-hybrid-apps-with-rails-a-case-study
         TurbolinksSession.getDefault(this).addJavascriptInterface(new WebService(this), "Android");
 
         // For this demo app, we force debug logging on. You will only want to do

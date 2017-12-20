@@ -4,6 +4,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <!-- Adding Toolbar as in https://github.com/tamcgoey/dasher-app-android/blob/master/src/main/res/layout/activity_active_dash.xml-->
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/activity_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"/>
+
     <com.basecamp.turbolinks.TurbolinksView
         android:id="@+id/turbolinks_view"
         android:layout_width="match_parent"

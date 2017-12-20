@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SprachSpiel</string>
+    <string name="title_activity">SprachSpiel</string>
 </resources>
