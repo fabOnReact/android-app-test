@@ -35,6 +35,14 @@ public class MainActivity extends AppCompatActivity implements TurbolinksAdapter
         // Find the custom TurbolinksView object in your layout
         turbolinksView = (TurbolinksView) findViewById(R.id.turbolinks_view);
 
+        // Setting http user agent of the request performed to the server with the android app. so that logics on the back end can be written for the android app
+        // https://stackoverflow.com/questions/26778882/check-if-a-request-came-from-android-app-in-rails
+        // https://stackoverflow.com/questions/5586197/android-user-agent#5590105
+        // https://github.com/ruby-china/ruby-china-android/blob/master/app/src/main/java/org/ruby_china/android/MainActivity.java#L70
+
+        WebSettings webSettings = TurbolinksSession.getDefault(this).getWebView().getSettings();
+        webSettings.setUserAgentString("turbolinks-app, sprachspiel, official, android");
+
         // Creating a native navigation toolbar as described in https://speakerdeck.com/tamcgoey/building-hybrid-apps-with-rails-a-case-study
         // https://github.com/tamcgoey/dasher-app-android/blob/master/src/main/java/com/usedashnow/dasher/ActiveDashActivity.java
         Toolbar mToolbar = (Toolbar) findViewById(R.id.activity_toolbar);
@@ -45,6 +53,13 @@ public class MainActivity extends AppCompatActivity implements TurbolinksAdapter
         // I add the Javascript interface from WebService.java showToast()
         // https://github.com/tamcgoey/dasher-app-android/blob/master/src/main/java/com/usedashnow/dasher/ActiveDashActivity.java and to set the message read https://speakerdeck.com/tamcgoey/building-hybrid-apps-with-rails-a-case-study
         TurbolinksSession.getDefault(this).addJavascriptInterface(new WebService(this), "Android");
+
+        // Running Javascript to hide the navbar, it will not give back any result except hiding the navbar
+        // https://github.com/ruby-china/ruby-china-android/blob/master/app/src/main/java/org/ruby_china/android/MainActivity.java
+        //TurbolinksSession.getDefault(this).getWebView().evaluateJavascript(
+        //        "$('.navbar').hide();",
+        //        null
+        //);
 
         // For this demo app, we force debug logging on. You will only want to do
         // this for debug builds of your app (it is off by default)
@@ -116,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements TurbolinksAdapter
     }
 
     // overriding the onCreateOptionsMenu to inflate the menu.xml icons in the Toolbar
+    // https://github.com/tamcgoey/dasher-app-android/blob/master/src/main/java/com/usedashnow/dasher/ActiveDashActivity.java
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

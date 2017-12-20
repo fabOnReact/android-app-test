@@ -2,6 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <!-- This xml includes the User icon for the Tollbar -->
+    <!-- https://github.com/tamcgoey/dasher-app-android/blob/master/src/main/res/menu/menu_active_dash.xml -->
     <group android:id="@+id/menu_group">
         <item
             android:id="@+id/action_finish"
