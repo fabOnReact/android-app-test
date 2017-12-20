@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- This xml includes the User icon for the Tollbar -->
+    <group android:id="@+id/menu_group">
+        <item
+            android:id="@+id/action_finish"
+            android:icon="@drawable/ic_check_circle_24dp"
+            android:title="@string/menu_finish"
+            app:showAsAction="always"/>
+        <item
+            android:id="@+id/action_active_dash_help"
+            android:title="@string/menu_help"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/action_active_dash_details"
+            android:title="@string/menu_details"
+            app:showAsAction="never"/>
+    </group>
+
+</menu>

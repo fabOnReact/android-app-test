@@ -1,8 +1,11 @@
 package com.example.mobileapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.webkit.WebSettings;
 import android.support.v7.widget.Toolbar;
 
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements TurbolinksAdapter
 
     private String location;
     private TurbolinksView turbolinksView;
+    private Menu mMenu;
 
     // -----------------------------------------------------------------------
     // Activity overrides
@@ -35,7 +39,9 @@ public class MainActivity extends AppCompatActivity implements TurbolinksAdapter
         // https://github.com/tamcgoey/dasher-app-android/blob/master/src/main/java/com/usedashnow/dasher/ActiveDashActivity.java
         Toolbar mToolbar = (Toolbar) findViewById(R.id.activity_toolbar);
         mToolbar.setTitle(R.string.title_activity);
+        mToolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(mToolbar);
+
         // I add the Javascript interface from WebService.java showToast()
         // https://github.com/tamcgoey/dasher-app-android/blob/master/src/main/java/com/usedashnow/dasher/ActiveDashActivity.java and to set the message read https://speakerdeck.com/tamcgoey/building-hybrid-apps-with-rails-a-case-study
         TurbolinksSession.getDefault(this).addJavascriptInterface(new WebService(this), "Android");
@@ -107,6 +113,20 @@ public class MainActivity extends AppCompatActivity implements TurbolinksAdapter
         intent.putExtra(INTENT_URL, location);
 
         this.startActivity(intent);
+    }
+
+    // overriding the onCreateOptionsMenu to inflate the menu.xml icons in the Toolbar
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+
+        this.mMenu = menu;
+
+        return true;
     }
 
     // -----------------------------------------------------------------------
