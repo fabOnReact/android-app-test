@@ -3,6 +3,7 @@ package com.example.mobileapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.webkit.WebSettings;
 
 import com.basecamp.turbolinks.TurbolinksSession;
 import com.basecamp.turbolinks.TurbolinksAdapter;
@@ -10,7 +11,8 @@ import com.basecamp.turbolinks.TurbolinksView;
 
 public class MainActivity extends AppCompatActivity implements TurbolinksAdapter {
     // Change the BASE_URL to an address that your VM or device can hit.
-    private static final String BASE_URL = "http://192.168.1.70:3000";
+    // private static final String BASE_URL = "http://192.168.1.10:3000";
+    private static final String BASE_URL = "https://sprachspiel.xyz";
     private static final String INTENT_URL = "intentUrl";
 
     private String location;
@@ -31,6 +33,11 @@ public class MainActivity extends AppCompatActivity implements TurbolinksAdapter
         // For this demo app, we force debug logging on. You will only want to do
         // this for debug builds of your app (it is off by default)
         TurbolinksSession.getDefault(this).setDebugLoggingEnabled(true);
+
+        WebSettings settings = TurbolinksSession.getDefault().getWebView().getSettings();
+        settings.setJavaScriptEnabled(true);
+        settings.setDomStorageEnabled(true);
+        settings.setDatabaseEnabled(true);
 
         // For this example we set a default location, unless one is passed in through an intent
         location = getIntent().getStringExtra(INTENT_URL) != null ? getIntent().getStringExtra(INTENT_URL) : BASE_URL;
