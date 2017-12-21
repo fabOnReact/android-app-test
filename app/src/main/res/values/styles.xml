@@ -1,12 +1,19 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorBlack</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorBlack</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowTitleStyle">@style/MyTitleStyle</item>
+        <item name="android:textAppearance">@style/MyTextAppereance</item>
+        <item name="android:textSize">1sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:titleTextAppearance">@style/MyTitleStyle</item>
     </style>
+
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -16,5 +23,11 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="MyTitleStyle">courier</style>
+
+    <style name="MyTextAppereance">courier</style>
+
+
 
 </resources>

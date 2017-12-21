@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">SprachSpiel</string>
     <string name="title_activity">SprachSpiel</string>
+    <string name="title_activity_profile">Your Profile</string>
     <string name="menu_profile">Manage Profile</string>
-    <string name="menu_help">Need Help?</string>
+    <string name="menu_room">Your Room</string>
     <string name="menu_details">Details</string>
     <string name="menu_finish">Finish Dash</string>
+    <string name="menu_help">need help?</string>
 </resources>

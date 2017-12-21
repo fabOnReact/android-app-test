@@ -13,7 +13,7 @@
         android:background="@android:color/black"
         android:color="@android:color/white"
         android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+        android:theme="@style/Theme.AppCompat.NoActionBar"/>
 
     <com.basecamp.turbolinks.TurbolinksView
         android:id="@+id/turbolinks_view"

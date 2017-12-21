@@ -10,11 +10,11 @@
             android:title="@string/menu_finish"
             app:showAsAction="always"/>
         <item
-            android:id="@+id/action_active_dash_help"
+            android:id="@+id/action_help"
             android:title="@string/menu_help"
             app:showAsAction="never"/>
         <item
-            android:id="@+id/action_active_dash_details"
+            android:id="@+id/action_details"
             android:title="@string/menu_details"
             app:showAsAction="never"/>
     </group>
